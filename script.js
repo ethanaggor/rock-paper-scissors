@@ -34,28 +34,55 @@ function playerSelection() {
         return choices[conversion];
     }
 
+//Create variables for points and round #
+let computerPoints = 0;
+let playerPoints = 0;
+let roundNum = 0;
+
 //Determine who won the round
 function playRound(computerPlay, playerSelection){
     //Determine draw conditions
    if (computerPlay === playerSelection)
    {
-       return "Draw!";
+       roundNum++;
+       return console.log("Draw!");
    }
    else
    //Determine losing conditions
    if (computerPlay === 'Rock' && playerSelection === 'Scissors' || computerPlay === 'Paper' && playerSelection === 'Rock' || computerPlay === 'Scissors' && playerSelection === 'Paper'){
-       return "You lose! " + computerPlay + " beats " + playerSelection;
+        computerPoints++;
+        roundNum++;
+        return console.log("You lose! " + computerPlay + " beats " + playerSelection);
    }
    //Default to winning conditions
    else
-    return "You win! " + playerSelection + " beats " + computerPlay;
+    playerPoints++;
+    roundNum++;
+    return console.log("You win! " + playerSelection + " beats " + computerPlay);
 }
 
-//Set return values of computerPlay() and playerSelection() to a variable for playRound() parameters
-computerPlay = computerPlay();
-playerSelection = playerSelection();
+//Plays 5 rounds of Rock Paper Scissors and determines winner
+function game(){
+    //Call playRound function 5x and update points & round # after each round
+    for (let i = 0; i < 5; i++){
+        playRound(computerPlay(), playerSelection());
+        console.log("Round: " + roundNum);
+        console.log("Computer: " + computerPoints);
+        console.log("Player: " + playerPoints);
+    }
+    //Computer winning condition
+    if (computerPoints > playerPoints){
+        return console.log("Computer wins!");
+    }
+    else
+    //Player winning coniditon
+    if (playerPoints > computerPoints){
+        return console.log("Player wins!");
+    }
+    else
+    //Draw condition
+    return console.log("Match has been declared a draw!");
+}
 
-//Print result of match
-console.log(playRound(computerPlay, playerSelection));
-console.log("Computer: " + computerPlay);
-console.log("Player: " + playerSelection);
+//Play ball!
+game();

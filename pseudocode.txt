@@ -34,3 +34,8 @@ round function
         return
     else
     generate losing and winning conditions
+
+game function
+    call round function 5x
+    print player with most points
+        if points are even, declare a draw
