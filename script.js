@@ -14,7 +14,16 @@ function computerPlay() {
 //Ask player for a choice and return their value as a string
 function playerSelection() {
     //Prompt user
-    let choice = prompt("Choose: Rock, Paper, Scissors").length
+    let choice;
+    let preChoice = prompt("Choose: Rock, Paper, Scissors")
+    //Check if user cancelled prompt
+    if (preChoice === null){
+        console.log("Sorry you don't want to play :(");
+    }
+    else
+    {
+    choice = preChoice.length;
+    }
 
     //Convert choice to an integer at the index of choices[] array
     switch(choice){
@@ -45,7 +54,7 @@ function playRound(computerPlay, playerSelection){
    if (computerPlay === playerSelection)
    {
        roundNum++;
-       return console.log("Draw!");
+       return console.log("Draw! " + computerPlay + " ties " + playerSelection);
    }
    else
    //Determine losing conditions
