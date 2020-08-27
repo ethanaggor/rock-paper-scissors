@@ -1,0 +1,36 @@
+//Rock Paper Scissors
+
+create three variables:
+    rock with a string value of 'Rock'
+    paper with a string value of 'Paper'
+    scissors with a string value of 'scissors'
+
+create an array of three elements called choices
+    0, rock
+    1, paper
+    2, scissors
+
+computerChoice function
+    create a random number that accesses an element in the array called choices
+        use a math random function and multiply by three
+        surround product of math random function by math floor function
+        include product as en element of the array of choices
+    return value of the current position in the array
+
+playerSelection function
+    prompt user for a choice of 'Rock', 'Paper', or 'Scissors'
+    use the length function to determine a value called choice
+    iterate through a loop of 3
+        if value === 4, store convserion as 0
+        if value === 5, store convserion as 1
+        if value === 8, store convserion as 2
+    store newValue choices array
+    return value of choices
+
+round function
+    take computerPlay and playerSelection as parameters
+    if computerPlay === playerSelection
+        console.log("Draw!")
+        return
+    else
+    generate losing and winning conditions
