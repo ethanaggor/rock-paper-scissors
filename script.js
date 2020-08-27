@@ -22,18 +22,18 @@ function playerSelection() {
     }
     else
     {
-    choice = preChoice.length;
-    }
-
+    
+    choice = preChoice.toUpperCase();
+    
     //Convert choice to an integer at the index of choices[] array
     switch(choice){
-        case 4:
+        case "ROCK":
             conversion = 0;
             break;
-        case 5:
+        case "PAPER":
             conversion = 1;
             break;
-        case 8:
+        case "SCISSORS":
             conversion = 2;
             break
         default:
@@ -41,6 +41,7 @@ function playerSelection() {
             return playerSelection();
         }
         return choices[conversion];
+    }
     }
 
 //Create variables for points and round #
